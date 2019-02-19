@@ -1,0 +1,40 @@
+body {
+    width: 100%;
+}
+
+.shop-wrapper {
+    margin: 80px 0 50px 20px;
+}
+
+.shop-title {
+    margin-top: 87px;
+    margin-bottom: 50px;
+    padding: 15px;
+    background: rgb(22, 22, 22);
+    text-align: center;
+    color: aliceblue;
+}
+
+.shop-products img {
+    width: 200px;
+    height: 250px;
+    margin-bottom: 10px;
+}
+
+.product-category {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.category {
+    margin: 0 0 50px 10px;
+}
+
+.header-shop {
+    padding: 30px;
+}
+
+
+
+

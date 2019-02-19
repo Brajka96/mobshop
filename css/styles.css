@@ -1,0 +1,416 @@
+@import url('https://fonts.googleapis.com/css?family=Shrikhand');
+@import url('https://fonts.googleapis.com/css?family=Hind|Rokkitt');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.scroll-to-top-btn {
+    position: fixed;
+    right: 40px;
+    bottom: 50px;
+    z-index: 30;
+    display: none;
+}
+
+.scroll-to-top-btn i {
+    color: rgb(180, 7, 7);
+}
+
+.clear {
+    height: 1px;
+    clear: both;
+}
+
+.wrapper {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.toggle {
+    width: 100%;
+    background-color: #000;
+    text-align: left;
+    padding: 10px 20px;
+    color: #fff;
+    display: none;
+}
+
+.toggle i {
+    font-size: 30px;
+    float: right;
+    margin-top: 20px;
+    margin-left: 22px;
+    cursor: pointer;
+}
+
+.toggle a {
+    color: #fff;
+}
+
+.toggle h1 {
+    display: inline-block;
+    font-size: 32px;
+}
+
+#close-nav{
+    display: none;
+}
+
+.header1, .header1-sign a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.header1-sign a:hover {
+    text-decoration: none;
+    color: rgb(240, 219, 219);
+}
+
+.header1-info .fa-envelope, .btn-info {
+    margin-left: 15px;
+}
+
+.header2 {
+    padding: 30px;
+}
+
+.fixed-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 15px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: all 0.2s ease;
+}
+
+.logo {
+    float: left;
+}
+
+#logo-span {
+    color: rgb(180, 7, 7);
+}
+
+#nav-list {
+    float: right;
+    text-decoration: none;
+    list-style: none;
+    margin-top: 15px;
+    color: #000;
+}
+
+#nav-list li {
+    float: left;
+    margin: 0 15px;
+}
+
+#nav-list li a {
+    text-decoration: none;
+    color: #000;
+}
+
+#nav-list li a:hover {
+    font-size: 17px;
+    color: grey;
+}
+
+#list-cart {
+    border-left: 1px solid #666;
+    padding-left: 30px;
+}
+
+#list-cart i {
+    font-size: 22px;
+}
+
+#list-cart a {
+    position: relative;
+}
+
+#cart-badge {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    background: #ddd;
+}
+
+
+
+/* main */
+
+main {
+    clear: both;
+}
+
+.showcase {
+    width: 100%;
+    height: 470px;
+    /* background: url('phone.jpg') no-repeat;
+    background-size: cover;
+    opacity: 0.96;
+    font-family: 'Shrikhand', cursive; */
+}
+
+.showcase img {
+    width: 100%;
+    height: 470px;
+}
+
+/* .showcase-content {
+    width: 40%;
+    height: 100%;
+    float: right;
+    padding: 50px;
+    color: #fff;
+    text-align: center;
+}
+
+.showcase-content h1 {
+    margin: 50px 0 55px 0;
+}
+
+.showcase-content i {
+    margin-right: 20px;
+} */
+
+.titles {
+    margin: 50px 0;
+    text-align: center; 
+}
+
+.titles span {
+    border-bottom: 2px solid black;
+}
+
+/* products*/
+
+.main-products img {
+    width: 250px;
+    height: 300px;
+    margin-bottom: 10px;
+}
+
+.product-top .overlay {
+    position: absolute;
+    top: 30px;
+    opacity: 0;
+}
+
+.overlay .btn {
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+.product-top:hover .overlay{
+    opacity: 1;
+    margin-left: 5%;
+    transition: 0.5s;
+}
+
+.product-bottom {
+    margin-bottom: 50px;
+}
+
+/* products end */
+
+.about-us {
+    margin: 50px 0 100px 0 ;
+}
+
+#about-us-section {
+    margin: 40px 0;
+}
+
+.tab-content {
+    margin-top: 30px;
+}
+
+#team-members {
+    width: 100%;
+    height: 500px;
+    background: #111;
+    color: #fff;
+}
+
+.team-member {
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 30px;
+    text-align: center;
+    color: #fff;
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+}
+
+.team-member h5 {
+    margin: 10px 0;
+}
+
+.team-members-title h3{
+    padding-top: 50px;
+}
+
+.team-members-title span {
+    border-bottom: 2px solid #fff;
+}
+
+.carousel-item {
+    margin-bottom: 50px;
+}
+
+#contact {
+    margin-bottom: 15px;
+}
+
+#contact .contact-info {
+    margin-top: 30px;
+}
+
+#contact h5, #contact h2 {
+    text-align: center;
+}
+
+#map {
+    width: 100%;
+    height: 400px;
+    margin-top: 20px;
+    border-top: 1px solid black;
+}
+
+#contact-us {
+    padding: 30px;
+    height: 400px;
+    background: rgb(12, 12, 12);
+    color: #fff;
+    border-radius: 1%;
+    box-shadow: 0 8px 8px 0 rgba(59, 43, 43, 0.3), 0 8px 25px 0 rgba(0, 0, 0, 0.19);
+}
+
+#contact-us input, #contact-us textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    color: #fff
+}
+
+#footer {
+    width: 100%;
+    background: rgb(12, 12, 12);
+    padding-top: 50px;
+    color: #999;
+}
+
+#footer-info {
+    border-bottom: 1px solid #aaa;
+}
+
+#footer-pay-info {
+    margin: 20px 0;
+}
+
+#footer img {
+    width: 300px;
+    height: 150px;
+}
+
+.copyright {
+    width: 100%;
+    padding: 13px;
+    line-height: 10px;
+    background: #000;
+    margin-top: 50px;
+}
+
+@media(max-width: 900px) {
+    .toggle {
+        display: block;
+    }
+
+    .toggle h1 {
+        text-align: center;
+        padding: 10px;
+    }
+
+    .header1 {
+        display: none;
+    }
+
+    .header2 {
+        display: none;
+    }
+
+    .fixed-nav-shop {
+        display: none;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    #nav-list {
+        width: 100%;
+    }
+
+    #nav-list li {
+        clear: both;
+        width: 100%;
+        display: block;
+        text-align: center;
+        padding: 10px;
+    }
+
+    #nav-list li:hover{
+        background: #ddd;
+    }
+
+    #list-cart {
+        border-left: none;
+    }
+    
+    #cart-badge {
+        display: none;
+    }
+
+    #close-nav {
+        display: block;
+    }
+
+    .skewed {
+        display: none;
+    }
+
+    .active {
+        display:block;
+    }
+    
+    #footer h3 {
+        margin: 10px 0;
+    }
+}
+
+@media(max-width: 600px) {
+    #carouselExampleSlidesOnly {
+        display:none;
+    }
+    .showcase {
+        background-image: url("showcase-images/mobile-shop.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+}
