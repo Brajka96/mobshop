@@ -8,7 +8,7 @@ $email = $_POST['newEmail'];
 $kori = $_POST['newKori'];
 $pass = $_POST['newPass'];
 
-  $conn = mysqli_connect("localhost", "root", "", "web-shop");
+  $conn = mysqli_connect("localhost", "root", "", "mobshop");
 
   if(!$conn) {
       die("Neuspješno povezivanje na bazu");

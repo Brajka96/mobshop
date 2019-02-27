@@ -11,7 +11,7 @@
             $pass = $_POST['pass'];
 
             //spajamo se na bazu
-            $conn = mysqli_connect("localhost", "root", "", "web-shop");
+            $conn = mysqli_connect("localhost", "root", "", "mobshop");
             $user = stripslashes($user);
             $pass = stripslashes($pass);
             $user = mysqli_real_escape_string($conn, $user);

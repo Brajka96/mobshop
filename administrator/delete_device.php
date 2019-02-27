@@ -1,6 +1,6 @@
 <?php 
 
-$connect = mysqli_connect("localhost", "root", "", "web-shop");
+$connect = mysqli_connect("localhost", "root", "", "mobshop");
 $data = json_decode(file_get_contents("php://input"));
 
 if(count($data) > 0) {

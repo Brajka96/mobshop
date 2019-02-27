@@ -1,6 +1,6 @@
 <?php 
 
-$connect = mysqli_connect("localhost", "root", "", "web-shop");
+$connect = mysqli_connect("localhost", "root", "", "mobshop");
 $data = json_decode(file_get_contents("php://input"));
 
 if(count($data) > 0) {
@@ -9,7 +9,7 @@ if(count($data) > 0) {
     if(mysqli_query($connect, $query)){
         header("location:../cart.php");
     } else {
-        echo "Neuspješno brisanje";
+        header("location:../shop.php");
     }
 }
 

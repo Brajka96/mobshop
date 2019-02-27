@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MobShop</title>
-    <link rel="stylesheet" href="css/styles.css?newversion">
+    <link rel="stylesheet" href="css/styles.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
     <link rel="stylesheet" href="css/split.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
@@ -33,12 +33,15 @@
             </div>
         </nav>
     </div>
+
+    <!-- Za mobitel -->
     <div class="toggle">
         <h1>Mob<span id="logo-span">Shop</span> </h1>
         <i class="fas fa-bars menu" aria-hidden="true"></i>
         <a href="sign-in.php"><i class="fas fa-shopping-cart"></i><span id="cart-badge"
                                 class="badge badge-light">0</span></a>
     </div>
+
     <div class="toggle-list header2">
     
         <div class="wrapper">
@@ -98,12 +101,12 @@
                             <img ng-src="css/phone-images/{{product.uredaj_slika}}" alt="product-1">
                             <div class="overlay">
                                 <button type="button" rel="tooltip" data-placement="left" title="Pogledaj detalje"
-                                    class="btn btn-info" ng-click="display(product)" data-toggle="modal" data-target="#exampleModal">
+                                    class="btn btn-info" ng-click="display(product)" data-toggle="modal" data-target="#exampleModal" tooltip>
                                     <i class="fa fa-eye"></i>
                                 </button>
 
-                                <button type="button" data-toggle="tooltip" data-placement="left" title="Prijavi se za pristup shopu!"
-                                    class="btn btn-info">
+                                <button type="button" rel="tooltip" data-placement="left" title="Prijavi se za pristup shopu!"
+                                    class="btn btn-info" tooltip>
                                     <a style="text-decoration: none; color:white" href="sign-in.php"><i class="fa fa-shopping-cart"></i></a>
                                 </button>
                             </div>
@@ -211,7 +214,7 @@
                         </div>
                         <div class="tab-pane fade" id="future" role="tabpanel" aria-labelledby="future-tab">
                             <p>Naša je misija pružiti svakom kupcu najbolju vrijednost za novac kroz vrhunsku uslugu i zadovoljstvo kupnje..</p>
-                            <a href="#" class="btn btn-info">Više detalja</a>
+                            <a href="Vizija.docx" class="btn btn-info">Više detalja</a>
                         </div>
                     </div>
                 </div>
@@ -294,7 +297,7 @@
                     </div>
                     <div class="col-lg-5 col-sm-12 offset-lg-1" >
                         
-                        <form id="contact-us">
+                        <form id="contact-us" action="mailto:brajka55@gmail.com" method="GET">
                             <div class="form-group">
                                 <label for="name">Ime</label>
                                 <input type="text" class="form-control" id="name" placeholder="Upišite ime">
@@ -333,9 +336,9 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
-    <script src="js/main.js?newversion"></script>
+    <script src="js/main.js?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
     <script src="js/split.js"></script>
-    <script src="js/shop.js?newversion"></script>
+    <script src="js/shops.js?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
 
 
     <script>
@@ -357,7 +360,6 @@
     <script>
     $(document).ready(function() {
     $(".menu").click(function() {
-        console.log("TEST")
         $(".toggle-list").toggleClass("active")
     })
     })

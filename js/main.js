@@ -9,9 +9,11 @@ $(window).scroll(function () {
     }
 })
 
+console.log("TEST")
+
 // tooltip
 $(function () {
-    $('[rel="tooltip"]').tooltip(); 
+  $('[rel="tooltip"]').tooltip()
 })
 
 $(function () {

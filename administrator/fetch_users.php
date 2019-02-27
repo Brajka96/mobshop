@@ -1,6 +1,6 @@
 <?php 
 
-$connect = new PDO("mysql:host=localhost;dbname=web-shop", "root", "");
+$connect = new PDO("mysql:host=localhost;dbname=mobshop", "root", "");
 
 $query = "SELECT * FROM korisnik";
 

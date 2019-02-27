@@ -1,5 +1,5 @@
 <?php 
-$connect = new PDO("mysql:host=localhost;dbname=web-shop", "root", "");
+$connect = new PDO("mysql:host=localhost;dbname=mobshop", "root", "");
 
 $query = "SELECT DISTINCT uredaj_kapacitet FROM uredaji";
 

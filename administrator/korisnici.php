@@ -48,14 +48,14 @@ include('../model/session.php');
     </section>
 
    <div ng-show="msg" class="container alert alert-{{msgType}}" role="alert">
-    {{msg}} <span ng-click="msg = ''" class="close">x</span>
+    {{msg}} - {{}}<span ng-click="msg = ''" class="close">x</span>
    </div>
    
    <?php if(isset($_SESSION['msg'])){ ?>
-   <div class="container alert alert-<?php echo $_SESSION['msgType'];?>" role="alert">
-    <?php echo $_SESSION['msg'];?> <span ng-click="<?php unset($_SESSION['msg']);?>" class="close">x</span>
+         <div class="container alert alert-<?php echo $_SESSION['msgType'];?> myAlert" role="alert">
+    <?php echo $_SESSION['msg'];?> <span class="close"></span>
    </div>
-   <?php unset($_SESSION['msg']);
+<?php unset($_SESSION['msg']);
          unset($_SESSION['msgType']); } ?>
 
     <section id="main">
