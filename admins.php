@@ -58,7 +58,7 @@ include('model/session.php');
                 </div>
                 <ul id="nav-list">
                     <li><i id="close-nav" class="fas fa-times-circle"></i></li>
-                    <li><a href="user.php">Home</a></li>
+                    <li><a href="admins.php">Home</a></li>
                     <li><a href="shop.php">Shop</a></li>
                     <li><a href="#services">O nama</a></li>
                     <li><a href="#contact">Kontakt</a></li>
@@ -73,6 +73,7 @@ include('model/session.php');
                         if(isset($_SESSION["login_user"])) {
                          ?> <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <a class="dropdown-item" href="model/logout.php">Odjavi se</a>
+                            <a class="dropdown-item" href="administrator/admin.php">Pregled stranice</a>
                             </div>
                         <?php }?>
                     </div>

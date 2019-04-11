@@ -2,8 +2,8 @@
 
     include("model/login.php");//uključujemo login
 		if(isset($_SESSION['login_user'])){
-		if($_SESSION["login_user"] == "admin"){
-			header("Location: administrator/admin.php");//preusmjeravanje na drugu stranicu
+		if($_SESSION["user_type"] == "admin"){
+			header("Location: admins.php");//preusmjeravanje na drugu stranicu
 		}else{
 		    $_SESSION["visit"] = 1;
 			header("location: user.php");
@@ -114,10 +114,21 @@
                         <input id="pass1" name="pass" type="password" class="validate">
                         <label for="pass1">Šifra</label>
                     </div>
+                    
                 </div>
+                <div class="row">
+                <div class="input-field col s6">
+                <select name="user_type" id="user_type">
+                 <option value="user">User</option>
+                 <option value="admin">Admin</option> 
+                </select>
+                <label for="user_type">Tip korisnika</label>
+                </div>
+                </div>
+                
                 <input id="form-btn" type="submit" class="btn waves-effect waves-light" value="Prijava" name="login">
                  
-                    <h6 style="color:red; text-align: right"><?php echo $error; ?></h6>
+                <h6 style="color:red; text-align: right"><?php echo $error; ?></h6>
 
             </form>
         </div>
@@ -132,9 +143,13 @@
 <script>
         $(document).ready(function () {
            
-            $(".tabs").tabs()
-            
+            $(".tabs").tabs();
+            $('select').formSelect();
         });
+
+     
+
+  
     </script>
     
 </body>

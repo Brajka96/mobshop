@@ -121,6 +121,12 @@ body{
   margin-top:30px;
 }
 
+@media (max-width: 993px) {
+    .admin-sidebar {
+      margin-bottom: 20px;
+  }
+}
+
 
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
@@ -136,9 +142,7 @@ body{
     color: #ffbbbc;
     background-color: #c0392b;
   }
-  .admin-sidebar {
-      margin-bottom: 20px;
-  }
+  
 }
 
 

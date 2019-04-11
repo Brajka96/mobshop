@@ -196,8 +196,8 @@ main {
 /* products*/
 
 .main-products img {
-    width: 250px;
-    height: 300px;
+    width: 210px;
+    height: 285px;
     margin-bottom: 10px;
 }
 
@@ -372,6 +372,7 @@ main {
         display: block;
         text-align: center;
         padding: 10px;
+        border-bottom: 1px solid #eef;
     }
 
     #nav-list li:hover{
@@ -388,6 +389,12 @@ main {
 
     #close-nav {
         display: block;
+        cursor: pointer;
+    }
+    
+    .shop-title {
+        margin-top: 0px;
+        margin-bottom: 50px;
     }
 
     .skewed {

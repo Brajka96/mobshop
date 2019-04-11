@@ -22,6 +22,7 @@ include('../model/session.php');
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Dobrodošli, <?php echo $_SESSION['login_user']; ?></a></li>
+            <li><a href="../admins.php">Natrag na stranicu</a></li>
             <li><a href="../model/logout.php">Odjavi se</a></li>
           </ul>
         </div><!--/.nav-collapse -->

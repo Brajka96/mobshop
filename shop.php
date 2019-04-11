@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MobShop</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
     <link rel="stylesheet" href="css/split.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
@@ -21,6 +21,10 @@
     <script src="lib/angular.min.js"></script>
 
     <style>
+    
+    .row{
+        margin-right: 0;
+    }
         .category .category-title {
     padding: 10px ;
     text-align: center;
@@ -46,10 +50,20 @@
     transition: all 0.2s ease;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .shop-title {
-        margin-top: 0;
+        margin-top: 0px;
+        margin-bottom: 50px;
     }
+}
+
+@media (max-width: 768px) {
+    
+    .row{
+        margin-right: 0;
+        margin-left: 0;
+    }
+    
     .shop-wrapper {
         margin: 0 15px 0 5px;
     }
@@ -85,21 +99,7 @@
                     <li id="list-cart"><a href="cart.php"><i class="fas fa-shopping-cart"></i><span id="cart-badge"
                                 class="badge badge-light">{{cart.length}}</span></a></li>
                     <li>
-                        <div class="dropdown">
-                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                <?php echo (isset($_SESSION["login_user"])) ? $_SESSION["login_user"] : 'Guest'; ?> <i
-                                    class="fas fa-user"></i> </a>
-
-                            <?php 
-      if(isset($_SESSION["login_user"])) {
-        ?>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="model/logout.php">Odjavi se</a>
-                            </div>
-
-                            <?php }?>
-                        </div>
+                        <?php include('view/dropdown.php') ?>
                     </li>
                 </ul>
                 <div class="clear"></div>
@@ -141,7 +141,7 @@
                     </div>
                     <div id="allPhones" class="col-lg-9 col-md-9 col-12 shop-products">
                         <div class="product-category">
-                            <input type="text" class="form-control form-control-lg" ng-model="searchProduct" id="search"
+                            <input type="text" class="form-control form-control-lg bg-light" ng-model="searchProduct" id="search"
                                 aria-describedby="searchHelp" placeholder="Pronađi uređaj"> <br>
                             <div class="sort-options">
                                 <span>
@@ -160,16 +160,14 @@
                                 <div class="product-top text-center">
                                     <img ng-src="css/phone-images/{{product.uredaj_slika}}" alt="product-1">
                                     <div class="overlay">
-                                        <button type="button" rel="tooltip" data-placement="left" title="Pogledaj detalje"
-                                            class="btn btn-info" ng-click="display(product)" data-toggle="modal"
-                                            data-target="#exampleModal">
+                                        <button type="button"
+                                            class="btn btn-info" ng-click="display(product)" rel="tooltip" data-placement="left" title="Vidi detalje" data-toggle="modal" data-target="#exampleModal" tooltip>
                                             <i class="fa fa-eye"></i>
                                         </button>
 
 
 
-                                        <button type="button" ng-click="addToCart(product)" data-tooltip="tooltip"
-                                            data-placement="left" title="Dodaj u korpu" class="btn btn-info">
+                                        <button type="button" ng-click="addToCart(product)" class="btn btn-info" rel="tooltip" data-placement="left" title="Dodaj u korpu" tooltip>
                                             <i class="fa fa-shopping-cart"></i>
                                         </button>
                                     </div>
@@ -225,15 +223,15 @@
 
     <?php include('view/footer.php') ?>
     
-    <div id="message"></div>
+    <div class="buyMessage"></div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
-    <script src="js/main.js"></script>
-    <script src="js/shop.js?newversion"></script>
+    <script src="js/main.js?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
+    <script src="js/shops.js?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
 
     <script>
     $(document).ready(function() {

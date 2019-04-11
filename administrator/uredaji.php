@@ -23,6 +23,7 @@ include('../model/session.php');
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#">Dobrodošli, <?php echo $_SESSION['login_user']; ?></a></li>
+          <li><a href="../admins.php">Natrag na stranicu</a></li>
           <li><a href="../model/logout.php">Odjavi se</a></li>
         </ul>
       </div>
@@ -52,6 +53,13 @@ include('../model/session.php');
  <div ng-show="msg" class="container alert alert-{{msgType}}" role="alert">
     {{msg}} <span ng-click="msg = ''" class="close">x</span>
 </div>
+
+<?php if(isset($_SESSION['msg'])){ ?>
+         <div class="container alert alert-<?php echo $_SESSION['msgType'];?> myAlert" role="alert">
+    <?php echo $_SESSION['msg'];?> <span class="close"></span>
+   </div>
+<?php unset($_SESSION['msg']);
+         unset($_SESSION['msgType']); } ?>
 
   <section id="main">
     <div class="container">
@@ -143,10 +151,6 @@ include('../model/session.php');
 				<label for="slika">Slika</label>
 				<input type="text" name="slika" class="form-control"  placeholder="Slika">
         </div>
-        <div class="form-group">
-				<label for="status">Status</label>
-				<input type="text" name="status" class="form-control"  placeholder="Status">
-        </div>
         <button type="submit" class="btn btn-primary btn-block">Dodaj</button>
 
 			</form>
@@ -196,10 +200,6 @@ include('../model/session.php');
         <div class="form-group">
 				<label for="novaSlika">Slika</label>
 				<input type="text" name="novaSlika" class="form-control" value="{{editing.uredaj_slika}}" placeholder="Slika">
-        </div>
-        <div class="form-group">
-				<label for="noviStatus">Status</label>
-				<input type="hidden" name="noviStatus" class="form-control" value="{{editing.uredaj_status}}" placeholder="Status">
         </div>
         <div class="form-group">
 				<label for="id">Id</label>

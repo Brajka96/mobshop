@@ -1,6 +1,6 @@
 <?php 
 
-$connect = mysqli_connect("localhost", "root", "", "web-shop");
+$connect = mysqli_connect("localhost", "root", "", "mobshop");
 
     $query = "DELETE FROM `korpa`";
     if(mysqli_query($connect, $query)){

@@ -6,14 +6,15 @@ session_start();
   $email = $_POST['email'];
   $kori = $_POST['kori'];
   $pass = $_POST['pass'];
+  $user_type = 'user';
+  $conn = mysqli_connect("localhost", "root", "", "mobshop");
 
-  $conn = mysqli_connect("localhost", "root", "", "web-shop");
 
   if(!$conn) {
       die("Neuspješno povezivanje na bazu");
   }
 
-  $sql = "INSERT INTO `korisnik` (`ID`, `IME`, `PREZIME`, `EMAIL`, `KORISNICKO_IME`, `SIFRA`) VALUES (NULL, '$ime', '$prez', '$email', '$kori', '$pass')";
+  $sql = "INSERT INTO `korisnik` (`ID`, `IME`, `PREZIME`, `EMAIL`, `KORISNICKO_IME`, `SIFRA`, `USER_TYPE`) VALUES (NULL, '$ime', '$prez', '$email', '$kori', '$pass', '$user_type')";
 
 
   if(mysqli_query($conn, $sql)){

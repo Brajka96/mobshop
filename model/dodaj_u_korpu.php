@@ -1,6 +1,6 @@
 <?php
 
-    $conn = mysqli_connect("localhost", "root", "", "web-shop");
+    $conn = mysqli_connect("localhost", "root", "", "mobshop");
     $data = json_decode(file_get_contents("php://input"));
     $ime = $data->ime;
     $slika = $data->slika;
@@ -9,10 +9,9 @@
         die("Neuspješno povezivanje na bazu");
     }
   
-    $sql = "INSERT INTO korpa (id, slika, ime, cijena) VALUES ('', '$slika', '$ime', '$cijena')";
+    $sql = "INSERT INTO korpa (id, slika, ime, cijena) VALUES (NULL, '$slika', '$ime', '$cijena')";
   
     if(mysqli_query($conn, $sql)){
-        echo "Uspjesno";
         header("location:../shop.php");
     }else {
         echo "Neuspješno upisivanje u bazu test!";

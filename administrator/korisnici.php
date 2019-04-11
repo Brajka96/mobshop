@@ -22,6 +22,7 @@ include('../model/session.php');
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Dobrodošli, <?php echo $_SESSION['login_user']; ?></a></li>
+            <li><a href="../admins.php">Natrag na stranicu</a></li>
             <li><a href="../model/logout.php">Odjavi se</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -48,14 +49,14 @@ include('../model/session.php');
     </section>
 
    <div ng-show="msg" class="container alert alert-{{msgType}}" role="alert">
-    {{msg}} <span ng-click="msg = ''" class="close">x</span>
+    {{msg}} - {{}}<span ng-click="msg = ''" class="close">x</span>
    </div>
    
    <?php if(isset($_SESSION['msg'])){ ?>
-   <div class="container alert alert-<?php echo $_SESSION['msgType'];?>" role="alert">
-    <?php echo $_SESSION['msg'];?> <span ng-click="<?php unset($_SESSION['msg']);?>" class="close">x</span>
+         <div class="container alert alert-<?php echo $_SESSION['msgType'];?> myAlert" role="alert">
+    <?php echo $_SESSION['msg'];?> <span class="close"></span>
    </div>
-   <?php unset($_SESSION['msg']);
+<?php unset($_SESSION['msg']);
          unset($_SESSION['msgType']); } ?>
 
     <section id="main">
@@ -93,6 +94,7 @@ include('../model/session.php');
                         <th>e-mail</th>
                         <th>Korisnicko ime</th>
                         <th>Sifra</th>
+                        <th>Tip korisnika</th>
                         <th></th>
                       </tr>
                       <tr ng-repeat="user in users | filter: search">
@@ -100,6 +102,7 @@ include('../model/session.php');
                         <td>{{user.EMAIL}}</td>
                         <td>{{user.KORISNICKO_IME}}</td>
                         <td>{{user.SIFRA}}</td>
+                        <td>{{user.USER_TYPE}}</td>
                         <td><button class="btn btn-default" data-toggle="modal" data-target="#editUser" ng-click="editUser(user)">Edit</button> <button class="btn btn-danger" ng-click="deleteUser(user)">Delete</button></td>
                       </tr>
                      
@@ -142,6 +145,13 @@ include('../model/session.php');
 			  <div class="form-group">
 				<label for="pass">Šifra</label>
 				<input type="password" name="pass" class="form-control"  placeholder="Šifra">
+			  </div>
+        <div class="form-group">
+				<label for="user_type">Tip korisnika</label>
+				<select name="user_type" id="user_type">
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+          </select>
 			  </div>
 			  <button type="submit" class="btn btn-primary btn-block">Dodaj</button>
 			</form>
@@ -188,6 +198,13 @@ include('../model/session.php');
 				<label for="ID">ID</label>
 				<input type="text" name="ID" value="{{editingUser.ID}}" class="form-control"  placeholder="ID">
 			  </div>
+        <div class="form-group">
+        <label for="user_type">Tip korisnika</label>
+          <select name="user_type" id="user_type">
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
 			  <button type="submit" class="btn btn-primary btn-block">Ažuriraj</button>
 			</form>
       </div>

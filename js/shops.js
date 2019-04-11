@@ -21,12 +21,11 @@ shopApp.controller("shopController", function($scope,$http) {
 
     $http.get('model/fetch.php').then(function(response){
         $scope.data = response.data;
-        $scope.products = response.data;
-        $scope.allProducts = response.data;
-        // $scope.data.forEach(phone => {
-        //     $scope.products.push(phone);
-        //     $scope.allProducts.push(phone);
-        // });
+        console.log($scope.data);
+        $scope.data.forEach(phone => {
+            $scope.products.push(phone);
+            $scope.allProducts.push(phone);
+        });
     })
 
     $http.get('model/fetch-brands.php').then(function(response){
@@ -63,8 +62,8 @@ shopApp.controller("shopController", function($scope,$http) {
             $http.post('model/dodaj_u_korpu.php', data).then(function(data){
                 $scope.displayCart();
             })
-            $('#message').css($scope.msgCss).show().html('Uspješno dodan uređaj'); // show and set the message
-            setTimeout(function(){ $('#message').hide().html('');}, 3000);
+            $('.buyMessage').css($scope.msgCss).show().html('Uspješno dodan uređaj'); // show and set the message
+            setTimeout(function(){ $('.buyMessage').hide().html('');}, 3000);
         }
     }
 
@@ -143,5 +142,18 @@ shopApp.controller("shopController", function($scope,$http) {
   
 });
 
-
+shopApp.directive('tooltip', function(){
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs){
+            $(element).hover(function(){
+                // on mouseenter
+                $(element).tooltip('show');
+            }, function(){
+                // on mouseleave
+                $(element).tooltip('hide');
+            });
+        }
+    };
+});
    

@@ -7,14 +7,15 @@ $prez = $_POST['newPrez'];
 $email = $_POST['newEmail'];
 $kori = $_POST['newKori'];
 $pass = $_POST['newPass'];
+$type = $_POST['user_type'];
 
-  $conn = mysqli_connect("localhost", "root", "", "web-shop");
+  $conn = mysqli_connect("localhost", "root", "", "mobshop");
 
   if(!$conn) {
       die("Neuspješno povezivanje na bazu");
   }
 
-  $sql = "UPDATE `korisnik` SET `IME` = '$ime', `PREZIME` = '$prez', `EMAIL` = '$email', `KORISNICKO_IME`= '$kori', `SIFRA` = '$pass' WHERE `korisnik`.`ID` = '$id'";
+  $sql = "UPDATE `korisnik` SET `IME` = '$ime', `PREZIME` = '$prez', `EMAIL` = '$email', `KORISNICKO_IME`= '$kori', `SIFRA` = '$pass', `USER_TYPE` = '$type' WHERE `korisnik`.`ID` = '$id'";
 
   if(mysqli_query($conn, $sql)){
       $_SESSION['msg'] = "Uspješno ažuriran korisnik";
