@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MobShop</title>
-    <link rel="stylesheet" href="css/styles.css?newversion">
+    <link rel="stylesheet" href="css/styles.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
     <link rel="stylesheet" href="css/split.css">
     <link rel="stylesheet" href="css/shops.css?newversion">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
@@ -70,21 +70,7 @@
                     <li id="list-cart"><a href="cart.php"><i class="fas fa-shopping-cart"></i><span id="cart-badge"
                                 class="badge badge-light">{{cart.length}}</span></a></li>
                     <li>
-                        <div class="dropdown">
-                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                <?php echo (isset($_SESSION["login_user"])) ? $_SESSION["login_user"] : 'Guest'; ?> <i
-                                    class="fas fa-user"></i> </a>
-
-                            <?php 
-      if(isset($_SESSION["login_user"])) {
-        ?>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="model/logout.php">Odjavi se</a>
-                            </div>
-
-                            <?php }?>
-                        </div>
+                        <?php include('view/dropdown.php'); ?>
                     </li>
                 </ul>
                 <div class="clear"></div>
@@ -132,17 +118,24 @@
                         <td><button class="btn btn-warning" ng-click="calculateDevice(product, product.id)">Promijeni</button> <button class="btn btn-danger" ng-click="deleteDevice(product)">Izbriši</button></td>
                     </tr>
                     <tr>
-                        <th></th>
+                        <th><button ng-click="deleteAllDevices()" class="btn btn-danger"><i class="far fa-trash-alt"></i> Isprazni korpu</button></th>
                         <th></th>
                         <th></th>
                         <th></th>
                         <th>Ukupno: {{total}} KM</th>
                         <th></th>
-                    </tr>       
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>                        
+                        <th ><a href="narudzba.php" class="btn btn-success btn-block"><i class="fas fa-shopping-cart"></i> Naruči</a></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                   
                 </tbody>
             </table>
-            <button ng-show="cart.length > 0" ng-click="deleteAllDevices()" class="btn btn-danger"><i class="far fa-trash-alt"></i> Isprazni korpu</button>
-            <a ng-show="cart.length > 0" style="margin: 20px 0" href="narudzba.php" class="btn btn-success btn-block"><i class="fas fa-shopping-cart"></i> Naruči</a>
             </div>
         </div>
     </main>
@@ -155,7 +148,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
-    <script src="js/shop.js?newversion">
+    <script src="js/shops.js?newversion"></script>
 
     </script>
 

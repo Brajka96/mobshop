@@ -10,7 +10,7 @@ include('model/session.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MobShop</title>
-    <link rel="stylesheet" href="css/styles.css?newversion">
+    <link rel="stylesheet" href="css/styles.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
     <link rel="stylesheet" href="css/split.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
@@ -22,6 +22,11 @@ include('model/session.php');
 </head>
 
 <body>
+    
+    <?php if(isset($_SESSION['visit'])){ ?>
+<div id="welcome-msg"></div>
+<?php unset($_SESSION['visit']); } ?>
+    
     <div id="home" class="header1">
         <nav class="navbar navbar-dark bg-dark">
             <div class="container">
@@ -30,8 +35,10 @@ include('model/session.php');
                     <i class="fas fa-envelope"></i> mobshop@test.com
                 </div>
                 <div class="header1-sign">
-                    <a href="sign-in.php"><i class="fas fa-user"></i> Prijava</a>
-                    <a href="#" class="btn btn-info">Registracija</a>
+                    <span class="d-inline-block" data-toggle="popover" data-content="Već ste prijavljeni!">
+                        <a href="#"><i class="fas fa-user"></i> Prijava</a>
+                    
+                    <a href="#" class="btn btn-info">Registracija</a></span>
                 </div>
             </div>
         </nav>
@@ -50,6 +57,7 @@ include('model/session.php');
                     <h1>Mob<span id="logo-span">Shop</span></h1>
                 </div>
                 <ul id="nav-list">
+                    <li><i id="close-nav" class="fas fa-times-circle"></i></li>
                     <li><a href="index.php">Home</a></li>
                     <li><a href="shop.php">Shop</a></li>
                     <li><a href="#services">O nama</a></li>
@@ -103,13 +111,13 @@ include('model/session.php');
                             <img ng-src="css/phone-images/{{product.uredaj_slika}}" alt="product-1">
                             <div class="overlay">
                                 <button type="button" rel="tooltip" data-placement="left" title="Pogledaj detalje"
-                                    class="btn btn-info" ng-click="display(product)" data-toggle="modal" data-target="#exampleModal">
+                                    class="btn btn-info" ng-click="display(product)" data-toggle="modal" data-target="#exampleModal" tooltip>
                                     <i class="fa fa-eye"></i>
                                 </button>
 
-                                <button type="button" data-toggle="tooltip" data-placement="left" title="Dodaj u korpu"
-                                    class="btn btn-info">
-                                    <a style="text-decoration: none; color:white" href="sign-in.php"><i class="fa fa-shopping-cart"></i></a>
+                                <button type="button" rel="tooltip" data-placement="left" title="Dodaj u korpu"  ng-click="addToCart(product)"
+                                    class="btn btn-info" tooltip>
+                                    <a style="text-decoration: none; color:white" href="user.php"><i class="fa fa-shopping-cart"></i></a>
                                 </button>
                             </div>
                         </div>
@@ -146,8 +154,7 @@ include('model/session.php');
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Zatvori</button>
-                                    <button type="button" class="btn btn-primary"><i class="fas fa-shopping-cart"></i>
-                                        Dodaj u korpu</button>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -213,7 +220,7 @@ include('model/session.php');
                         </div>
                         <div class="tab-pane fade" id="future" role="tabpanel" aria-labelledby="future-tab">
                             <p>Naša je misija pružiti svakom kupcu najbolju vrijednost za novac kroz vrhunsku uslugu i zadovoljstvo kupnje..</p>
-                            <a href="#" class="btn btn-info">Više detalja</a>
+                            <a href="Vizija.docx" class="btn btn-info">Više detalja</a>
                         </div>
                     </div>
                 </div>
@@ -296,7 +303,7 @@ include('model/session.php');
                     </div>
                     <div class="col-lg-5 col-sm-12 offset-lg-1" >
                         
-                        <form id="contact-us">
+                        <form id="contact-us" action="MAILTO:josipmobshop@gmail.com" method="post" enctype="text/plain">
                             <div class="form-group">
                                 <label for="name">Ime</label>
                                 <input type="text" class="form-control" id="name" placeholder="Upišite ime">
@@ -309,7 +316,7 @@ include('model/session.php');
                                 <label for="message">Poruka</label>
                                 <textarea class="form-control" id="message" rows="3" placeholder="Vaša poruka"></textarea>
                             </div>
-                            <button type="button" class="btn btn-primary btn-block">Pošalji</button>
+                            <button type="submit" class="btn btn-primary btn-block">Pošalji</button>
 
                         </form>
 
@@ -328,16 +335,16 @@ include('model/session.php');
         <a href="user.php"><i class="fas fa-arrow-circle-up fa-3x"></i></a>
     </div>
     
+    <div class="buyMessage"></div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main.js?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
     <script src="js/split.js"></script>
-    <script src="js/shop.js"></script>
-
+    <script src="js/shops.js?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
 
 
     <script>
@@ -366,7 +373,23 @@ include('model/session.php');
         $(".toggle-list").toggleClass("active")
     })
 
+    $('#welcome-msg').css({
+        "position": "fixed",
+        "top": "10px",
+        "right":"20px",
+        "z-index":"200000",
+        "transition": "0.1s ease all",
+        "padding":"30px",
+        "background":"rgb(9, 150, 63)",
+        "font-family":"Palatino Linotype",
+        "border-radius": "3px",
+        "color":"white"}).show().html('Uspješna prijava! Možete pristupiti kupovini uređaja');
+    setTimeout(function(){ $('#welcome-msg').hide().html('');}, 3500);
     
+    })
+    
+    $("#close-nav").click(function() {
+        $(".toggle-list").toggleClass("active")
     })
     </script>
 

@@ -7,7 +7,7 @@ session_start();
   $kori = $_POST['kori'];
   $pass = $_POST['pass'];
 
-  $conn = mysqli_connect("localhost", "root", "", "web-shop");
+  $conn = mysqli_connect("localhost", "root", "", "mobshop");
 
   if(!$conn) {
       die("Neuspješno povezivanje na bazu");

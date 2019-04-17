@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "web-shop");
+$conn = mysqli_connect("localhost", "root", "", "mobshop");
 session_start();// Pokretanje sesije
 //Spremanje sesije
 

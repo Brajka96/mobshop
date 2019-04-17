@@ -28,11 +28,11 @@ adminApp.controller("adminController", function($scope,$http) {
     $scope.search = "";
     $msgStatus = false;
     $scope.msg = "";
+    
     $scope.id = parseInt('ID');
 
     $scope.deleteUser = function(user){
         if(confirm("Jeste li sigurni da zelite obrisati " + user.IME)){
-            
             $http.post("delete.php", {"id": user.ID}).then(function(data){
                 $scope.displayUsers()
             })
@@ -92,6 +92,7 @@ adminApp.controller("adminController", function($scope,$http) {
         })
     }
 
-    
+   
 
 })
+
